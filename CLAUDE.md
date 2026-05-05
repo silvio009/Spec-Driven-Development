@@ -28,15 +28,19 @@ Stack: Python 3, FastAPI, SQLite (dev), pytest.
 - src/database.py — conexão SQLite
 - src/repositories/task_repository.py — CRUD completo
 - src/services/task_service.py — regras de negócio
+- src/api/main.py — app FastAPI configurado
+- src/api/routes/tasks.py — endpoints POST, GET, PATCH, DELETE
+- src/api/schemas/task.py — schemas Pydantic
+- src/api/dependencies.py — injeção de dependência
 
 <!-- SPECKIT START -->
 ## Plano de Implementação Ativo
 
-Feature: API de Gestão de Tarefas
-Branch: `002-task-rest-api`
-Plano: `specs/002-task-rest-api/plan.md`
-Spec: `specs/002-task-rest-api/spec.md`
-Contrato de API: `specs/002-task-rest-api/contracts/task-api.md`
-Modelo de dados: `specs/002-task-rest-api/data-model.md`
+Feature: Interface Visual de Gestão de Tarefas
+Branch: `003-task-frontend-ui`
+Plano: `specs/003-task-frontend-ui/plan.md`
+Spec: `specs/003-task-frontend-ui/spec.md`
+Contrato de UI: `specs/003-task-frontend-ui/contracts/ui-interactions.md`
+Modelo de dados: `specs/003-task-frontend-ui/data-model.md`
 Modelo de dados: `specs/001-task-management/data-model.md`
 <!-- SPECKIT END -->
