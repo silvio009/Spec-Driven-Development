@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Manager — Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Gestão de Tarefas</h1>
+    </header>
+
+    <!-- Formulário de criação (US2) -->
+    <section id="form-section">
+      <h2>Nova Tarefa</h2>
+      <div class="form-field">
+        <label for="title">Título <span class="required">*</span></label>
+        <input type="text" id="title" placeholder="Mínimo 3 caracteres" autocomplete="off">
+        <span id="title-error" class="field-error" aria-live="polite"></span>
+      </div>
+      <div class="form-field">
+        <label for="description">Descrição</label>
+        <textarea id="description" rows="2" placeholder="Opcional"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="deadline">Prazo</label>
+          <input type="date" id="deadline">
+        </div>
+        <div class="form-field">
+          <label for="priority">Prioridade</label>
+          <select id="priority">
+            <option value="">— Selecione —</option>
+            <option value="baixa">↓ Baixa</option>
+            <option value="media">→ Média</option>
+            <option value="alta">↑ Alta</option>
+          </select>
+        </div>
+      </div>
+      <button id="btn-save" class="btn btn--primary">Salvar Tarefa</button>
+      <div id="form-feedback" class="feedback-message" aria-live="polite"></div>
+    </section>
+
+    <!-- Filtros de status (US3) -->
+    <nav id="filter-bar" aria-label="Filtrar tarefas">
+      <button class="filter-btn filter-btn--active" data-filter="">Todas</button>
+      <button class="filter-btn" data-filter="pendente">Pendente</button>
+      <button class="filter-btn" data-filter="em_andamento">Em andamento</button>
+      <button class="filter-btn" data-filter="concluida">Concluída</button>
+    </nav>
+
+    <!-- Feedback global (erros de ação) -->
+    <div id="feedback" class="feedback-message feedback-message--error" aria-live="polite"></div>
+
+    <!-- Lista de tarefas (US1) -->
+    <main id="task-list" aria-label="Lista de tarefas">
+      <div id="empty-state" class="empty-state" hidden>
+        <p>📋 Nenhuma tarefa encontrada.</p>
+        <p id="empty-hint">Crie sua primeira tarefa acima.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

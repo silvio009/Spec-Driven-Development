@@ -1,0 +1,333 @@
+/* ============================================================
+   Reset & variáveis
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-pendente: #9ca3af;
+  --color-em-andamento: #3b82f6;
+  --color-concluida: #22c55e;
+  --color-due-today: #f59e0b;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-bg: #f9fafb;
+  --color-card: #ffffff;
+  --color-border: #e5e7eb;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+/* ============================================================
+   Formulário de criação (US2)
+   ============================================================ */
+#form-section {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+#form-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.required {
+  color: var(--color-error);
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color .15s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--color-em-andamento);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-field {
+  flex: 1;
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: var(--color-error);
+  min-height: 1rem;
+}
+
+/* ============================================================
+   Botões
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity .15s, background .15s;
+}
+
+.btn:hover { opacity: 0.88; }
+.btn:active { opacity: 0.75; }
+
+.btn--primary {
+  background: var(--color-em-andamento);
+  color: #fff;
+  margin-top: 0.25rem;
+}
+
+.btn--sm {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.btn--advance {
+  background: transparent;
+  border-color: var(--color-em-andamento);
+  color: var(--color-em-andamento);
+}
+
+.btn--delete {
+  background: transparent;
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* ============================================================
+   Mensagens de feedback
+   ============================================================ */
+.feedback-message {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+  display: none;
+}
+
+.feedback-message:not(:empty) {
+  display: block;
+}
+
+.feedback-message--error {
+  background: #fef2f2;
+  color: var(--color-error);
+  border: 1px solid #fecaca;
+}
+
+.feedback-message--warning {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+/* ============================================================
+   Filtros de status (US3)
+   ============================================================ */
+#filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-card);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-em-andamento);
+  color: var(--color-em-andamento);
+}
+
+.filter-btn--active {
+  background: var(--color-em-andamento);
+  border-color: var(--color-em-andamento);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ============================================================
+   Cards de tarefa (US1)
+   ============================================================ */
+.task-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: var(--shadow);
+  transition: border-color .15s;
+}
+
+.task-card--due-today {
+  border-left: 4px solid var(--color-due-today);
+  background: #fffdf7;
+}
+
+.task-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.task-card__title {
+  font-weight: 600;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.task-card__description {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+.task-card__meta {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.due-today-badge {
+  color: var(--color-due-today);
+  font-weight: 600;
+}
+
+.task-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Badges (US1)
+   ============================================================ */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge--pendente {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.badge--em-andamento {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge--concluida {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.priority-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   Estado vazio (US1)
+   ============================================================ */
+#feedback:empty { display: none; }
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-muted);
+}
+
+.empty-state p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.empty-state p:first-child {
+  font-size: 1.2rem;
+}
