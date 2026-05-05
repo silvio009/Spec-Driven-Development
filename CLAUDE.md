@@ -5,7 +5,7 @@ Time Manager — sistema de gestão de tempo e tarefas.
 Stack: Python 3, FastAPI, SQLite (dev), pytest.
 
 ## Regras obrigatórias
-- NUNCA escreva código sem ler a spec em .github/specs/
+- NUNCA escreva código sem ler a spec em specs/
 - SEMPRE proponha o plano técnico antes de implementar
 - Aguarde aprovação humana antes de prosseguir
 - Nomes de variáveis e funções em inglês
@@ -23,13 +23,20 @@ Stack: Python 3, FastAPI, SQLite (dev), pytest.
 - Não crie rotas sem spec aprovada
 - Não altere o banco sem documentar a mudança
 
+## O que já existe — não recriar
+- src/models/task.py — entidade Task, enums Priority e TaskStatus
+- src/database.py — conexão SQLite
+- src/repositories/task_repository.py — CRUD completo
+- src/services/task_service.py — regras de negócio
+
 <!-- SPECKIT START -->
 ## Plano de Implementação Ativo
 
-Feature: Gestão de Tarefas
-Branch: `001-task-management`
-Plano: `specs/001-task-management/plan.md`
-Spec: `specs/001-task-management/spec.md`
-Contrato de serviço: `specs/001-task-management/contracts/task-service.md`
+Feature: API de Gestão de Tarefas
+Branch: `002-task-rest-api`
+Plano: `specs/002-task-rest-api/plan.md`
+Spec: `specs/002-task-rest-api/spec.md`
+Contrato de API: `specs/002-task-rest-api/contracts/task-api.md`
+Modelo de dados: `specs/002-task-rest-api/data-model.md`
 Modelo de dados: `specs/001-task-management/data-model.md`
 <!-- SPECKIT END -->
